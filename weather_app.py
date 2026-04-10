@@ -124,7 +124,7 @@ class WeatherApp(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Weather App")
-        self.setWindowIcon(QIcon("weather_icon"))
+        self.setWindowIcon(QIcon("assets//weather_icon"))
         self.setMinimumSize(550, 850)
         self.resize(600, 950)
 
@@ -543,13 +543,13 @@ class WeatherApp(QWidget):
     def set_weather_animation(self, weather_id):
         self.stop_animation()
         if 200 <= weather_id <= 232:
-            self.movie = QMovie("thunder_1.gif")
+            self.movie = QMovie("assets//thunder.gif")
             self.setStyleSheet(self.base_style + "QLabel {color: white;background: transparent}")
         elif 500 <= weather_id <= 531:
-            self.movie = QMovie("rain_3.gif")
+            self.movie = QMovie("assets//rain.gif")
             self.setStyleSheet(self.base_style + "QLabel {color: white;background: transparent}")
         elif 600 <= weather_id <= 622:
-            self.movie = QMovie("snow_4.webp")
+            self.movie = QMovie("assets//snow.webp")
             self.setStyleSheet(self.base_style + "QLabel {color: black;background: transparent}")
         else:
             return
@@ -562,11 +562,11 @@ class WeatherApp(QWidget):
         if not self.sound_enabled:
             return
         if 200 <= weather_id <= 232:
-            self.play_sound("thunder_sound.mp3")
+            self.play_sound("assets//thunder_sound.mp3")
         elif 300 <= weather_id <= 531:
-            self.play_sound("rain_sound.mp3")
+            self.play_sound("assets//rain_sound.mp3")
         elif 600 <= weather_id <= 622:
-            self.play_sound("snow_sound.mp3")
+            self.play_sound("assets//snow_sound.mp3")
         else:
             return
 
