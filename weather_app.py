@@ -267,7 +267,7 @@ class WeatherApp(QWidget):
                 QPushButton#toggle_button {{ background-color: rgba(255, 152, 0, 0.5); color: {text_color}; }}
                 QPushButton#sound_button {{ background-color: rgba(0, 0, 0, 0.3); color: {text_color}; }}
             """
-        # Preserve hover effects
+
         button_style += """
             QPushButton#location_button:hover { background-color: rgba(76, 175, 80, 0.8); }
             QPushButton#get_weather_button:hover { background-color: rgba(33, 150, 243, 0.8); }
@@ -299,7 +299,7 @@ class WeatherApp(QWidget):
         self.location_button.setEnabled(True)
         self.location_button.setText("📍 Use My Location")
 
-        api_key = "1d9da9d25af5501d9e399a523b497a0b"
+        api_key = "ENTER_YOUR_API_KEY"
         url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
 
         try:
@@ -307,7 +307,6 @@ class WeatherApp(QWidget):
             response.raise_for_status()
             data = response.json()
             if data["cod"] == 200:
-                # Set city name from response
                 self.city_input.setText(data["name"])
                 self.display_weather(data)
             else:
@@ -334,7 +333,7 @@ class WeatherApp(QWidget):
 
 
     def get_weather(self):
-        api_key = "1d9da9d25af5501d9e399a523b497a0b"
+        api_key = "ENTER_YOUR_API_KEY"
         city = self.city_input.text()
         if not city.strip():
             self.display_error("Please enter a city name")
@@ -576,7 +575,7 @@ class WeatherApp(QWidget):
             (600 <= weather_id <= 622)
 
     def get_hourly_forecast(self, city):
-        api_key = "1d9da9d25af5501d9e399a523b497a0b"
+        api_key = "ENTER_YOUR_API_KEY"
         url = f"https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric"
 
         try:
@@ -607,13 +606,11 @@ class WeatherApp(QWidget):
         animation_active = self.is_active_animation_weather(self.current_weather_id)
 
         if animation_active:
-            # Semi-transparent grey background (50% opacity)
-            bg_color = (0.5, 0.5, 0.5, 0.5)  # grey with 50% opacity
+            bg_color = (0.5, 0.5, 0.5, 0.5) 
             self.hourly_chart.figure.patch.set_facecolor(bg_color)
             self.ax.set_facecolor(bg_color)
-            text_color = 'white'  # Force white text for contrast
+            text_color = 'white' 
         else:
-            # Fully transparent background
             self.hourly_chart.figure.patch.set_facecolor('none')
             self.ax.set_facecolor('none')
             text_color = 'white' if self.is_dark_theme else 'black'
