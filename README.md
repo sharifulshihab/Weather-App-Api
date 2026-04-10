@@ -27,29 +27,33 @@ It provides real-time weather updates, animations, and a 24-hour forecast chart 
 
 ## 📦 Project Structure
 
+```txt
 Weather-App-Api/
 │
 ├── weather_app.py
 ├── README.md
 ├── requirements.txt
 ├── assets/
-│ ├── gifs/
-│ ├── sounds/
+│   ├── gifs/
+│   ├── sounds/
+```
 
 
 ## ⚙️ Installation & Run
 
 1. Clone the repository
-
+```bash
 git clone https://github.com/sharifulshihab/Weather-App-Api.git
 cd Weather-App-Api
-
+```
 2. Install dependencies
+```bash
 pip install -r requirements.txt
-
+```
 3. Run the app
+```bash
 python weather_app.py
-
+```
 
 ##🔑 API Key Setup
 
@@ -61,11 +65,12 @@ api_key = "YOUR_API_KEY"
 
 
 🎯 Future Improvements
-
+```txt
 Dark mode toggle
 Weekly forecast
 Better UI animations
 Save favorite locations
+```
 
 👨‍💻 Author
 
